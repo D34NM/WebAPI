@@ -57,7 +57,6 @@ namespace B64Comparer.Repositories.Implementations
 		{
 			Compare existing = await GetAsync(id);
 
-
 			return
 				WithExceptionHandling(() =>
 				{

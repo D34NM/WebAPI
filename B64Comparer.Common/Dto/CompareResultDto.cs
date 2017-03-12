@@ -21,6 +21,8 @@ namespace B64Comparer.Common.Dto
 
 		public Status Status { get; set; }
 
+		public string ReadableStatus { get { return string.Format("Left and Right data are: {0}", Status); } }
+
 		public IList<int> Offsets { get; private set; }
 
 		public int Length { get { return Offsets.Count; } }

@@ -31,23 +31,6 @@ namespace B64Comparer
 
 			// Web API routes
 			config.MapHttpAttributeRoutes();
-
-			config.Routes.MapHttpRoute(
-				name: "Left",
-				routeTemplate: "v1/{controller}/{id}/left/",
-				defaults: new { controller = "Diff", action = "Left", id = RouteParameter.Optional }
-			);
-
-			config.Routes.MapHttpRoute(
-				name: "Right",
-				routeTemplate: "v1/{controller}/{id}/right/",
-				defaults: new { controller = "Diff", action = "Right", id = RouteParameter.Optional }
-			);
-
-			config.Routes.MapHttpRoute(
-				name: "Diff",
-				routeTemplate: "v1/{controller}/{id}",
-				defaults: new { controller = "Diff", action = "Diff", firstId = 0, secondId = 0 });
 		}
 	}
 }

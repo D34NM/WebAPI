@@ -1,4 +1,5 @@
 ﻿using B64Comparer.Services;
+using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -20,33 +21,30 @@ namespace B64Comparer.Controllers
 		#endregion
 
 		[HttpPost]
+		[Route("v1/diff/{id}/left/")]
 		public async Task<string> Left(int? id, [FromBody] string data)
 		{
 			ValidateIdAndData(id, data);
 
-			await _service.StoreLeftAsync(id.Value, data);
-
-			return null;
+			return JsonConvert.SerializeObject(new { success = await _service.StoreLeftAsync(id.Value, data) });
 		}
 
 		[HttpPost]
+		[Route("v1/diff/{id}/right/")]
 		public async Task<string> Right(int? id, [FromBody] string data)
 		{
 			ValidateIdAndData(id, data);
 
-			await _service.StoreRightAsync(id.Value, data);
-
-			return null;
+			return JsonConvert.SerializeObject(new { success = await _service.StoreRightAsync(id.Value, data) });
 		}
 
 		[HttpPost]
+		[Route("v1/diff/{id}")]
 		public async Task<string> Diff(int? id)
 		{
 			ValidateIdAndData(id, string.Empty);
 
-			await _service.Compare(id.Value);
-
-			return null;
+			return JsonConvert.SerializeObject(await _service.Compare(id.Value));
 		}
 
 		#region Private methods

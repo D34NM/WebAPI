@@ -35,7 +35,7 @@ namespace B64Comparer.Services
 			int result = await _unitOfWork.B64ComparerRepository.UpdateLeft(id, data);
 			_unitOfWork.Save();
 
-			return string.Empty;
+			return OutputConverter(result);
 		}
 
 		public async Task<string> StoreRightAsync(int id, string data)
@@ -43,14 +43,13 @@ namespace B64Comparer.Services
 			int result = await _unitOfWork.B64ComparerRepository.UpdateRight(id, data);
 			_unitOfWork.Save();
 
-			return string.Empty;
+			return OutputConverter(result);
 		}
 
 		public async Task<CompareResultDto> Compare(int id)
 		{
 			CompareDto dto = await GetAsync(id);
 
-			// todo
 			if (dto.Left == null || dto.Right == null)
 			{
 				return new CompareResultDto { Status = Status.Unknown };
@@ -69,9 +68,7 @@ namespace B64Comparer.Services
 			byte[] left = Convert.FromBase64String(dto.Left);
 			byte[] right = Convert.FromBase64String(dto.Right);
 
-			CompareResultDto result = new CompareResultDto { };
-
-			int mid = (left.Length) / 2;
+			CompareResultDto result = new CompareResultDto { Status = Status.Equal };
 
 			for (int i = 0; i < left.Length; i++)
 			{
@@ -83,5 +80,14 @@ namespace B64Comparer.Services
 
 			return result;
 		}
+
+		#region Private methods
+
+		private string OutputConverter(int result)
+		{
+			return (result == 0) ? "Yes" : "No";
+		}
+
+		#endregion
 	}
 }
