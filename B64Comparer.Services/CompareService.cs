@@ -16,6 +16,10 @@ namespace B64Comparer.Services
 
 		#region Constructor
 
+		/// <summary>
+		/// Initializes a new instance of the service.
+		/// </summary>
+		/// <param name="unitOfWork">The unit of work to handle the data side.</param>
 		public CompareService(IUnitOfWork unitOfWork)
 		{
 			_unitOfWork = unitOfWork;
@@ -23,6 +27,11 @@ namespace B64Comparer.Services
 
 		#endregion
 
+		/// <summary>
+		/// Get the <see cref="CompareDto"/> by the id.
+		/// </summary>
+		/// <param name="id">Id to lookup.</param>
+		/// <returns>Null if it is not found by the id, <see cref="CompareDto"/> otherwise.</returns>
 		public async Task<CompareDto> GetAsync(int id)
 		{
 			Compare store = await _unitOfWork.B64ComparerRepository.GetAsync(id);
@@ -30,6 +39,12 @@ namespace B64Comparer.Services
 			return new CompareDto { Id = store.Id, Left = store.Left, Right = store.Right };
 		}
 
+		/// <summary>
+		/// Stores the data provided by the "left side" of input.
+		/// </summary>
+		/// <param name="id">Id of the request.</param>
+		/// <param name="data">The binary64 encoded data.</param>
+		/// <returns>Yes if it is saved, No otherwise.</returns>
 		public async Task<string> StoreLeftAsync(int id, string data)
 		{
 			int result = await _unitOfWork.B64ComparerRepository.UpdateLeft(id, data);
@@ -38,6 +53,12 @@ namespace B64Comparer.Services
 			return OutputConverter(result);
 		}
 
+		/// <summary>
+		/// Stores the data provided by the "right side" of input.
+		/// </summary>
+		/// <param name="id">Id of the request.</param>
+		/// <param name="data">The binary64 encoded data.</param>
+		/// <returns>Yes if it is saved, No otherwise.</returns>
 		public async Task<string> StoreRightAsync(int id, string data)
 		{
 			int result = await _unitOfWork.B64ComparerRepository.UpdateRight(id, data);
@@ -46,6 +67,11 @@ namespace B64Comparer.Services
 			return OutputConverter(result);
 		}
 
+		/// <summary>
+		/// Compares the data that was stored based on the request id that is provided.
+		/// </summary>
+		/// <param name="id">Request id.</param>
+		/// <returns><see cref="CompareResultDto"/> containt information about the differences between two sides.</returns>
 		public async Task<CompareResultDto> Compare(int id)
 		{
 			CompareDto dto = await GetAsync(id);
