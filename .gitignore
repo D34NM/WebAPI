@@ -1,0 +1,5 @@
+packages/
+B64Comparer/obj/
+B64Comparer/bin/
+B64Comparer.Tests/obj/
+B64Comparer.Tests/bin/Debug/

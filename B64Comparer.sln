@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B64Comparer", "B64Comparer\B64Comparer.csproj", "{81485F01-C98D-4C9F-A321-2F6C816800EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B64Comparer.Tests", "B64Comparer.Tests\B64Comparer.Tests.csproj", "{BF1F2A08-9E02-4DA9-AC1E-AEA1B5ADBBF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81485F01-C98D-4C9F-A321-2F6C816800EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81485F01-C98D-4C9F-A321-2F6C816800EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81485F01-C98D-4C9F-A321-2F6C816800EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81485F01-C98D-4C9F-A321-2F6C816800EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF1F2A08-9E02-4DA9-AC1E-AEA1B5ADBBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF1F2A08-9E02-4DA9-AC1E-AEA1B5ADBBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF1F2A08-9E02-4DA9-AC1E-AEA1B5ADBBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF1F2A08-9E02-4DA9-AC1E-AEA1B5ADBBF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
