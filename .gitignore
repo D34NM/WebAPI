@@ -3,3 +3,11 @@ B64Comparer/obj/
 B64Comparer/bin/
 B64Comparer.Tests/obj/
 B64Comparer.Tests/bin/Debug/
+/B64Comparer.Data/bin/Debug
+/B64Comparer.Data/obj/Debug
+/B64Comparer.Repository/bin/Debug
+/B64Comparer.Repository/obj/Debug
+/B64Comparer.Services/bin/Debug
+/B64Comparer.Services/obj/Debug
+/B64Comparer.Common/obj/Debug
+/B64Comparer.Common/bin/Debug
